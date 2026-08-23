@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ServicesShowcase from "@/components/ServicesShowcase";
 import Navbar from "@/components/Navbar";
 import InteractiveMockup from "@/components/InteractiveMockup";
 import styles from "./page.module.css";
@@ -58,6 +59,49 @@ const selectedCollaborations = [
     initials: "BI",
     width: 72,
     height: 72,
+  },
+];
+
+const services = [
+  {
+    number: "01",
+    title: "Social Media",
+    description:
+      "Strategy, content creation and profile management that turns attention into growth.",
+    points: ["Strategy", "Content Creation", "Profile Management", "Analytics"],
+    visualLabel: "Growth System",
+  },
+  {
+    number: "02",
+    title: "Web Design & Development",
+    description:
+      "High-performance websites designed to look exceptional and convert visitors.",
+    points: ["UX Direction", "Custom Design", "Development", "Conversion"],
+    visualLabel: "Digital Experience",
+  },
+  {
+    number: "03",
+    title: "SEO",
+    description:
+      "Search strategies that put your brand in front of the people already looking for it.",
+    points: ["Technical SEO", "On-Page", "Content Mapping", "Visibility"],
+    visualLabel: "Search Presence",
+  },
+  {
+    number: "04",
+    title: "Content Creation",
+    description:
+      "Visuals, video and creative campaigns built for modern digital platforms.",
+    points: ["Visual Direction", "Video", "Campaign Assets", "Creative Systems"],
+    visualLabel: "Creative Production",
+  },
+  {
+    number: "05",
+    title: "AI & Automation",
+    description:
+      "Intelligent systems that help brands work faster, smarter and more efficiently.",
+    points: ["Automation Flows", "AI Support", "Workflows", "Efficiency"],
+    visualLabel: "Operational Leverage",
   },
 ];
 
@@ -175,6 +219,24 @@ export default function Home() {
               </a>
             ))}
           </div>
+        </section>
+
+        <section className={styles.servicesSection} aria-labelledby="services-heading">
+          <div className={styles.sectionIntro}>
+            <div>
+              <span className={styles.sectionEyebrow}>What We Do</span>
+              <h2 id="services-heading" className={styles.servicesTitle}>
+                Creative and technical systems built for modern brand growth.
+              </h2>
+            </div>
+
+            <p className={styles.servicesCopy}>
+              We combine strategy, content, design, and performance into a tighter
+              digital presence that feels elevated and works hard behind the scenes.
+            </p>
+          </div>
+
+          <ServicesShowcase services={services} styles={styles} />
         </section>
       </main>
     </div>

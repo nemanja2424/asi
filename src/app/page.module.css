@@ -189,6 +189,12 @@
   padding: 0 1.25rem 7rem;
 }
 
+.servicesSection {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 1.25rem 7rem;
+}
+
 .sectionIntro {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
@@ -224,7 +230,22 @@
   letter-spacing: -0.05em;
 }
 
+.servicesTitle {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
 .trustedCopy {
+  margin: 0;
+  color: rgba(245, 239, 226, 0.62);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.servicesCopy {
   margin: 0;
   color: rgba(245, 239, 226, 0.62);
   font-size: 1rem;
@@ -235,6 +256,204 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.servicesStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.serviceRow {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.8rem;
+  background:
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.05), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+    rgba(10, 10, 10, 0.56);
+  backdrop-filter: blur(16px);
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease,
+    transform 220ms ease;
+}
+
+.serviceRowActive {
+  border-color: rgba(212, 175, 55, 0.18);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.2);
+  background:
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.1), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+    rgba(11, 11, 11, 0.66);
+  transform: translateY(-2px);
+}
+
+.serviceTrigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.35rem 1.5rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.serviceTriggerMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.serviceInlineTitle {
+  color: rgba(245, 239, 226, 0.94);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.servicePlus {
+  color: var(--gold);
+  font-size: 1.6rem;
+  line-height: 1;
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.serviceRowActive .servicePlus {
+  transform: rotate(45deg);
+}
+
+.servicePanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+  gap: 1.2rem;
+  max-height: 0;
+  padding: 0 1.5rem;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 320ms ease,
+    opacity 220ms ease,
+    padding 220ms ease;
+}
+
+.serviceRowActive .servicePanel {
+  max-height: 24rem;
+  padding: 0 1.5rem 1.5rem;
+  opacity: 1;
+}
+
+.serviceNumber {
+  color: rgba(212, 175, 55, 0.92);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.servicePanelBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.9fr);
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.serviceName {
+  max-width: 12ch;
+  margin: 0;
+  color: rgba(245, 239, 226, 0.96);
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.serviceDescription {
+  max-width: 30rem;
+  margin: 1.1rem 0 0;
+  color: rgba(245, 239, 226, 0.68);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.serviceList {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.serviceListItem {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: rgba(245, 239, 226, 0.76);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.serviceListItem::before {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f2de96 0%, var(--gold) 100%);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.28);
+  flex-shrink: 0;
+}
+
+.serviceVisual {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.35rem;
+  background:
+    radial-gradient(circle at top, rgba(212, 175, 55, 0.12), transparent 58%),
+    rgba(255, 255, 255, 0.03);
+}
+
+.serviceVisualLabel {
+  color: rgba(245, 239, 226, 0.56);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.serviceVisualArt {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.serviceVisualLine {
+  display: block;
+  height: 0.8rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.9), rgba(255, 255, 255, 0.24));
+}
+
+.serviceVisualLine:nth-child(1) {
+  width: 92%;
+}
+
+.serviceVisualLine:nth-child(2) {
+  width: 74%;
+}
+
+.serviceVisualLine:nth-child(3) {
+  width: 58%;
 }
 
 .clientCard {
@@ -422,6 +641,14 @@
   .clientsGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .servicePanel {
+    grid-template-columns: 1fr;
+  }
+
+  .servicePanelBody {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {
@@ -444,8 +671,17 @@
     padding-bottom: 5rem;
   }
 
+  .servicesSection {
+    padding-inline: 0.85rem;
+    padding-bottom: 5rem;
+  }
+
   .clientsGrid {
     grid-template-columns: 1fr;
+  }
+
+  .serviceTrigger {
+    padding: 1.15rem 1.2rem;
   }
 
   .clientCard {
@@ -460,6 +696,32 @@
     min-width: 0;
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  .serviceRow {
+    border-radius: 1.35rem;
+  }
+
+  .serviceTriggerMeta {
+    gap: 0.75rem;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .serviceInlineTitle {
+    letter-spacing: 0.08em;
+  }
+
+  .serviceRowActive .servicePanel {
+    padding: 0 1.2rem 1.2rem;
+  }
+
+  .servicePanel {
+    padding: 0 1.2rem;
+  }
+
+  .serviceVisual {
+    min-height: 9rem;
   }
 }
 
