@@ -57,7 +57,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
   gap: 2rem;
-  align-items: end;
+  align-items: center;
 }
 
 .eyebrow {
@@ -183,6 +183,204 @@
   perspective: 1400px;
 }
 
+.trustedSection {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 1.25rem 7rem;
+}
+
+.sectionIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+  gap: 1.5rem 2rem;
+  align-items: end;
+  margin-bottom: 2rem;
+}
+
+.sectionEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  color: rgba(245, 239, 226, 0.6);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.sectionEyebrow::before {
+  content: "";
+  width: 3rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.7), transparent);
+}
+
+.trustedTitle {
+  max-width: 11ch;
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.trustedCopy {
+  margin: 0;
+  color: rgba(245, 239, 226, 0.62);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.clientsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.clientCard {
+  position: relative;
+  min-height: 13rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.4rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.55rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+    rgba(10, 10, 10, 0.56);
+  backdrop-filter: blur(16px);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+
+.clientCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), transparent 40%);
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.clientCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212, 175, 55, 0.18);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.24);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    rgba(11, 11, 11, 0.68);
+}
+
+.clientCard:hover::before {
+  opacity: 1;
+}
+
+.clientName {
+  margin: 0.5rem 0 0;
+  position: relative;
+  z-index: 1;
+  color: rgba(245, 239, 226, 0.92);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.clientBody {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.clientMeta {
+  max-width: 26rem;
+}
+
+.clientType {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(245, 239, 226, 0.58);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.clientSummary {
+  margin: 1rem 0 0;
+  max-width: 32rem;
+  color: rgba(245, 239, 226, 0.68);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.clientAside {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-width: 6.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+}
+
+.clientLogoRing {
+  display: grid;
+  width: 5.4rem;
+  height: 5.4rem;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at top, rgba(212, 175, 55, 0.14), transparent 58%),
+    rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.clientLogo {
+  width: var(--client-logo-width, 72%);
+  height: var(--client-logo-height, 72%);
+  object-fit: contain;
+}
+
+.clientInitials {
+  color: var(--gold);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-indent: 0.16em;
+}
+
+.clientBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(245, 239, 226, 0.72);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 .metric {
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -216,6 +414,14 @@
   .title {
     max-width: 11ch;
   }
+
+  .sectionIntro {
+    grid-template-columns: 1fr;
+  }
+
+  .clientsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 640px) {
@@ -231,6 +437,29 @@
 
   .panelMetrics {
     grid-template-columns: 1fr;
+  }
+
+  .trustedSection {
+    padding-inline: 0.85rem;
+    padding-bottom: 5rem;
+  }
+
+  .clientsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .clientCard {
+    min-height: 12rem;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 1.3rem;
+  }
+
+  .clientAside {
+    width: 100%;
+    min-width: 0;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 

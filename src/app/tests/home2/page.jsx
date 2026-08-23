@@ -1,5 +1,5 @@
-import Navbar from "./components/Navbar";
-import InteractiveMockup from "../components/InteractiveMockup";
+import Navbar from "@/components/Navbar";
+import InteractiveMockup from "@/components/InteractiveMockup";
 import styles from "./page.module.css";
 
 export default function Home() {
