@@ -58,6 +58,10 @@ export default function ServicesShowcase({ services, styles }) {
                   <span className={styles.serviceVisualLine} />
                 </div>
               </div>
+              <a href={service.href} className={styles.serviceMore}>
+                Explore service
+                <span aria-hidden="true">{"\u2192"}</span>
+              </a>
             </div>
           </article>
         );

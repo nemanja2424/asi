@@ -552,6 +552,39 @@
   width: 58%;
 }
 
+.serviceMore {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0 0.1rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.16);
+  color: rgba(245, 239, 226, 0.88);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: color 180ms ease;
+}
+
+.serviceMore span {
+  color: var(--gold);
+  font-size: 1.05rem;
+  transition: transform 180ms ease;
+}
+
+.serviceMore:hover,
+.serviceMore:focus-visible {
+  color: var(--gold);
+  outline: none;
+}
+
+.serviceMore:hover span,
+.serviceMore:focus-visible span {
+  transform: translateX(0.35rem);
+}
+
 .clientCard {
   position: relative;
   min-height: 13rem;
@@ -1001,7 +1034,7 @@
   }
 
   .serviceRowActive .servicePanel {
-    max-height: 42rem;
+    max-height: 46rem;
     padding: 0 1.05rem 1.05rem;
   }
 
@@ -1047,6 +1080,11 @@
 
   .serviceVisualLine {
     height: 0.58rem;
+  }
+
+  .serviceMore {
+    padding-top: 0.9rem;
+    font-size: 0.68rem;
   }
 }
 

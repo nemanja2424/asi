@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import styles from "./page.module.css";
 
@@ -27,8 +27,9 @@ const services = [
     timeline: ["Brief alignment", "Creative routes", "Production", "Publishing pack"],
   },
   {
-    id: "social-media-managing",
-    label: "Social media menaging",
+    id: "social-media-management",
+    aliases: ["social-media-managing"],
+    label: "Social media management",
     mobileLabel: "Social",
     eyebrow: "Always-on profile growth",
     title: "Daily management that keeps the brand active without feeling robotic.",
@@ -89,7 +90,37 @@ const services = [
     ],
     timeline: ["Audit", "Mapping", "Implementation", "Monitoring"],
   },
+  {
+    id: "ai-automation",
+    label: "AI & automation",
+    mobileLabel: "AI",
+    eyebrow: "Smarter operational systems",
+    title: "Automation that gives your team more time for valuable work.",
+    description:
+      "We connect practical AI tools and tailored workflows to reduce repetitive tasks, accelerate delivery, and keep your operations moving with less friction.",
+    highlights: ["Workflow design", "AI assistants", "System integration"],
+    stats: [
+      { value: "24/7", label: "Automated support" },
+      { value: "2x", label: "Faster workflows" },
+      { value: "API", label: "Connected tools" },
+    ],
+    cards: [
+      { title: "Process map", text: "A clear audit of repeatable work and automation opportunities." },
+      { title: "Smart workflow", text: "Connected tools that move information without manual handoffs." },
+      { title: "Human control", text: "Useful AI systems with clear review points and team ownership." },
+    ],
+    timeline: ["Audit", "Prototype", "Integration", "Refinement"],
+  },
 ];
+
+const findServiceIndex = (hash) => {
+  const serviceId = decodeURIComponent(hash.replace(/^#/, "")).toLowerCase();
+
+  return services.findIndex(
+    (service) =>
+      service.id === serviceId || service.aliases?.includes(serviceId),
+  );
+};
 
 export default function ServicesPage() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -97,7 +128,34 @@ export default function ServicesPage() {
 
   const activeService = services[activeIndex];
 
+  useEffect(() => {
+    const selectFromHash = () => {
+      const nextIndex = findServiceIndex(window.location.hash);
+
+      if (nextIndex < 0) return;
+
+      setActiveIndex((currentIndex) => {
+        if (currentIndex !== nextIndex) {
+          setDirection(nextIndex > currentIndex ? "right" : "left");
+        }
+
+        return nextIndex;
+      });
+    };
+
+    selectFromHash();
+    window.addEventListener("hashchange", selectFromHash);
+    window.addEventListener("popstate", selectFromHash);
+
+    return () => {
+      window.removeEventListener("hashchange", selectFromHash);
+      window.removeEventListener("popstate", selectFromHash);
+    };
+  }, []);
+
   const handleSelect = (index) => {
+    window.history.pushState(null, "", `#${services[index].id}`);
+
     if (index === activeIndex) {
       return;
     }
