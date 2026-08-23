@@ -131,38 +131,18 @@ export default function Home() {
               </a>
             </section>
 
-            <aside className={styles.heroPanel}>
-              <span className={styles.panelLabel}>Agency Snapshot</span>
-              <h2 className={styles.panelTitle}>Elegant execution without the noise.</h2>
-              <p className={styles.panelCopy}>
-                The interface direction is built around a restrained black and gold
-                palette, refined glass surfaces, and editorial spacing that feels
-                premium instead of flashy.
-              </p>
-
-              <div className={styles.panelMetrics}>
-                <div className={styles.metric}>
-                  <span className={styles.metricValue}>Social</span>
-                  <span className={styles.metricLabel}>Content & management</span>
-                </div>
-                <div className={styles.metric}>
-                  <span className={styles.metricValue}>Web</span>
-                  <span className={styles.metricLabel}>Websites & landing pages</span>
-                </div>
-                <div className={styles.metric}>
-                  <span className={styles.metricValue}>Growth</span>
-                  <span className={styles.metricLabel}>SEO & brand positioning</span>
-                </div>
-              </div>
 
               <div className={styles.mockupWrap}>
                 <InteractiveMockup />
               </div>
-            </aside>
           </div>
         </section>
 
-        <section className={styles.trustedSection} aria-labelledby="trusted-heading">
+        <section
+          id="work"
+          className={styles.trustedSection}
+          aria-labelledby="trusted-heading"
+        >
           <div className={styles.sectionIntro}>
             <div>
               <span className={styles.sectionEyebrow}>Selected Collaborations</span>
@@ -178,13 +158,14 @@ export default function Home() {
           </div>
 
           <div className={styles.clientsGrid}>
-            {selectedCollaborations.map((client) => (
+            {selectedCollaborations.map((client, index) => (
               <a
                 key={client.name}
                 href={client.href}
                 target="_blank"
                 rel="noreferrer"
                 className={styles.clientCard}
+                style={{ "--client-index": `"0${index + 1}"` }}
               >
                 <div className={styles.clientBody}>
                   <div className={styles.clientMeta}>
@@ -221,7 +202,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={styles.servicesSection} aria-labelledby="services-heading">
+        <section
+          id="services"
+          className={styles.servicesSection}
+          aria-labelledby="services-heading"
+        >
           <div className={styles.sectionIntro}>
             <div>
               <span className={styles.sectionEyebrow}>What We Do</span>

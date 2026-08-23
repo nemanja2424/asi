@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navItems = [
-  { label: "Services", href: "/services" },
+  { label: "Work", href: "#work" },
+  { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
   { label: "Testimonials", href: "#testimonials" },
 ];
@@ -40,7 +41,7 @@ export default function Navbar() {
         <Link href="#contact" className="nav-cta">
           Let&apos;s Talk
           <span className="nav-cta-arrow" aria-hidden="true">
-            →
+            {"\u2192"}
           </span>
         </Link>
       </nav>

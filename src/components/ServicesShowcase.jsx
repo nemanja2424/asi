@@ -18,13 +18,11 @@ export default function ServicesShowcase({ services, styles }) {
           <article
             key={service.number}
             className={`${styles.serviceRow} ${isActive ? styles.serviceRowActive : ""}`}
-            onMouseEnter={() => setActiveIndex(index)}
           >
             <button
               type="button"
               className={styles.serviceTrigger}
               onClick={() => toggleActive(index)}
-              onFocus={() => setActiveIndex(index)}
               aria-expanded={isActive}
             >
               <span className={styles.serviceTriggerMeta}>
