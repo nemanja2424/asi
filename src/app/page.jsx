@@ -2,6 +2,7 @@ import ClientsCarousel from "@/components/ClientsCarousel";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import Navbar from "@/components/Navbar";
 import InteractiveMockup from "@/components/InteractiveMockup";
+import ProcessTimeline from "@/components/ProcessTimeline";
 import styles from "./page.module.css";
 
 const selectedCollaborations = [
@@ -110,6 +111,33 @@ const services = [
   },
 ];
 
+// Add verified project, brand, and experience figures here when they are available.
+const aboutStats = [];
+
+const processSteps = [
+  {
+    number: "01",
+    title: "Discover",
+    description: "We understand your brand, audience and goals.",
+  },
+  {
+    number: "02",
+    title: "Strategy",
+    description: "We create a clear digital and creative direction.",
+  },
+  {
+    number: "03",
+    title: "Create",
+    description:
+      "Our team turns the strategy into content, websites and campaigns.",
+  },
+  {
+    number: "04",
+    title: "Grow",
+    description: "We analyze, optimize and continuously improve.",
+  },
+];
+
 export default function Home() {
   return (
     <div className={styles.page}>
@@ -185,6 +213,102 @@ export default function Home() {
           </div>
 
           <ServicesShowcase services={services} styles={styles} />
+        </section>
+
+        <section
+          id="about"
+          className={styles.aboutSection}
+          aria-labelledby="about-heading"
+        >
+          <div className={styles.aboutGrid}>
+            <div className={styles.aboutContent}>
+              <span className={styles.sectionEyebrow}>About ASI</span>
+              <h2 id="about-heading" className={styles.aboutTitle}>
+                More than an agency. <span>A creative partner.</span>
+              </h2>
+              <p className={styles.aboutCopy}>
+                We combine creativity, technology and strategy to help ambitious
+                brands build a stronger presence in the digital world.
+              </p>
+
+              {aboutStats.length > 0 && (
+                <div className={styles.aboutStats}>
+                  {aboutStats.map((stat) => (
+                    <div key={stat.label} className={styles.aboutStat}>
+                      <strong>{stat.value}</strong>
+                      <span>{stat.label}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className={styles.aboutVisual} aria-hidden="true">
+              <div className={styles.aboutVisualTopline}>
+                <span>ASI / Creative direction</span>
+                <span>Selected fragments / 01</span>
+              </div>
+
+              <div className={styles.aboutScene}>
+                <div className={styles.brandCanvas}>
+
+                  <div className={styles.canvasPoster}>
+                    <span>Creative partner</span>
+                    <strong>
+                      Make it
+                      <br />
+                      matter.
+                    </strong>
+                    <i />
+                  </div>
+
+                  <div className={styles.canvasFrame}>
+                    <span>Campaign / 01</span>
+                    <div className={styles.canvasImage}>
+                      <span />
+                    </div>
+                  </div>
+
+                  <div className={styles.canvasInterface}>
+                    <span>Digital systems</span>
+                    <i />
+                    <i />
+                    <i />
+                  </div>
+
+                  <p className={styles.canvasNote}>
+                    Ideas become systems.
+                    <br />
+                    Systems become impact.
+                  </p>
+                  <span className={styles.canvasMarker}>+</span>
+                </div>
+              </div>
+
+              <div className={styles.aboutVisualLegend}>
+                <span>Strategy</span>
+                <span>Creativity</span>
+                <span>Technology</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.processSection} aria-labelledby="process-heading">
+          <div className={styles.processIntro}>
+            <div>
+              <span className={styles.sectionEyebrow}>Our Process</span>
+              <h2 id="process-heading" className={styles.processTitle}>
+                From idea to impact.
+              </h2>
+            </div>
+            <p className={styles.processCopy}>
+              A focused four-step collaboration designed to turn clear thinking into
+              meaningful, measurable digital work.
+            </p>
+          </div>
+
+          <ProcessTimeline steps={processSteps} styles={styles} />
         </section>
       </main>
     </div>

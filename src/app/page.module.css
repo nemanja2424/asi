@@ -744,6 +744,474 @@
   text-align: center;
 }
 
+.aboutSection,
+.processSection {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 1.25rem 8rem;
+  scroll-margin-top: 8rem;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1.12fr);
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.aboutContent {
+  padding-block: 2rem;
+}
+
+.aboutTitle {
+  max-width: 10ch;
+  margin: 0;
+  font-size: clamp(3rem, 5.8vw, 5.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+}
+
+.aboutTitle span {
+  display: block;
+  color: rgba(245, 239, 226, 0.52);
+}
+
+.aboutCopy {
+  max-width: 34rem;
+  margin: 1.7rem 0 0;
+  color: rgba(245, 239, 226, 0.68);
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+.aboutStats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 2.2rem;
+}
+
+.aboutStat {
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.aboutStat strong,
+.aboutStat span {
+  display: block;
+}
+
+.aboutStat strong {
+  color: var(--gold);
+  font-size: 1.55rem;
+  font-weight: 600;
+}
+
+.aboutStat span {
+  margin-top: 0.4rem;
+  color: rgba(245, 239, 226, 0.52);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.aboutVisual {
+  position: relative;
+  min-height: 31rem;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  border-radius: 2rem;
+  background:
+    radial-gradient(ellipse at 56% 82%, rgba(212, 175, 55, 0.12), transparent 27%),
+    radial-gradient(circle at 24% 68%, rgba(255, 255, 255, 0.06), transparent 28%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012)),
+    #080808;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.34);
+}
+
+.aboutVisual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.13;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 3.5rem 3.5rem;
+  mask-image: linear-gradient(to bottom, transparent, #000 24%, #000 76%, transparent);
+}
+
+.aboutVisual::after {
+  content: "";
+  position: absolute;
+  right: 8%;
+  bottom: 18%;
+  left: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.28), transparent);
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.18);
+}
+
+.aboutVisualTopline,
+.aboutVisualLegend {
+  position: absolute;
+  z-index: 3;
+  right: 1.25rem;
+  left: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: rgba(245, 239, 226, 0.42);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.aboutVisualTopline {
+  top: 1.25rem;
+}
+
+.aboutVisualLegend {
+  bottom: 1.25rem;
+}
+
+.aboutVisualLegend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.aboutVisualLegend span::before {
+  content: "";
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.72);
+}
+
+.aboutScene {
+  position: absolute;
+  inset: 3.5rem 1rem;
+  display: grid;
+  place-items: center;
+  perspective: 1200px;
+}
+
+.brandCanvas {
+  position: relative;
+  width: min(31rem, 90%);
+  height: 24rem;
+  transform-style: preserve-3d;
+}
+
+.canvasCoordinates {
+  position: absolute;
+  top: 2%;
+  left: 5%;
+  color: rgba(245, 239, 226, 0.34);
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.canvasPoster {
+  position: absolute;
+  z-index: 2;
+  top: 10%;
+  left: 4%;
+  width: 44%;
+  height: 68%;
+  padding: 1.15rem;
+  overflow: hidden;
+  color: #11100e;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.58), transparent 38%),
+    #d9d2c3;
+  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.38);
+  transform: rotate(-3.5deg) translateZ(18px);
+  animation: canvasPosterFloat 9s ease-in-out infinite alternate;
+}
+
+.canvasPoster::after {
+  content: "";
+  position: absolute;
+  right: -28%;
+  bottom: -20%;
+  width: 88%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(17, 16, 14, 0.2);
+  border-radius: 50%;
+}
+
+.canvasPoster > span,
+.canvasFrame > span,
+.canvasInterface > span {
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.canvasPoster strong {
+  display: block;
+  margin-top: 2.6rem;
+  font-size: clamp(1.8rem, 3.3vw, 3.1rem);
+  font-weight: 600;
+  line-height: 0.88;
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
+}
+
+.canvasPoster i {
+  position: absolute;
+  right: 1.1rem;
+  bottom: 1rem;
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 50%;
+  background: #9a761d;
+}
+
+.canvasFrame {
+  position: absolute;
+  z-index: 1;
+  top: 4%;
+  right: 3%;
+  width: 49%;
+  height: 48%;
+  padding: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  background: rgba(11, 11, 11, 0.88);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  transform: rotate(2.5deg) translateZ(6px);
+  animation: canvasFrameFloat 10s ease-in-out infinite alternate;
+}
+
+.canvasFrame > span,
+.canvasInterface > span {
+  color: rgba(245, 239, 226, 0.5);
+}
+
+.canvasImage {
+  position: relative;
+  height: calc(100% - 1.4rem);
+  margin-top: 0.75rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 70% 32%, rgba(238, 215, 143, 0.8), transparent 9%),
+    linear-gradient(125deg, #161616 12%, #4a4030 48%, #090909 49%);
+}
+
+.canvasImage::before {
+  content: "";
+  position: absolute;
+  inset: 18% 22% -20% 12%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  transform: rotate(-14deg);
+}
+
+.canvasImage span {
+  position: absolute;
+  right: 8%;
+  bottom: 10%;
+  width: 34%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.canvasInterface {
+  position: absolute;
+  z-index: 3;
+  right: 7%;
+  bottom: 8%;
+  display: grid;
+  width: 49%;
+  gap: 0.55rem;
+  padding: 1rem;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgba(8, 8, 8, 0.78);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  transform: rotate(-1deg) translateZ(28px);
+  animation: canvasInterfaceFloat 8s ease-in-out infinite alternate;
+}
+
+.canvasInterface i {
+  display: block;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.72), rgba(255, 255, 255, 0.1));
+}
+
+.canvasInterface i:nth-of-type(1) {
+  width: 88%;
+}
+
+.canvasInterface i:nth-of-type(2) {
+  width: 67%;
+}
+
+.canvasInterface i:nth-of-type(3) {
+  width: 43%;
+}
+
+.canvasNote {
+  position: absolute;
+  z-index: 4;
+  bottom: 0;
+  left: 1%;
+  margin: 0;
+  color: rgba(245, 239, 226, 0.64);
+  font-size: 0.62rem;
+  line-height: 1.55;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.canvasMarker {
+  position: absolute;
+  z-index: 5;
+  top: 51%;
+  left: 49%;
+  display: grid;
+  width: 1.65rem;
+  height: 1.65rem;
+  place-items: center;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 50%;
+  background: #090909;
+  color: var(--gold);
+  font-size: 1rem;
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.2);
+}
+
+.processIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 3.5rem;
+}
+
+.processTitle {
+  margin: 0;
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.processCopy {
+  max-width: 31rem;
+  margin: 0;
+  color: rgba(245, 239, 226, 0.62);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.processTimeline {
+  padding: 2.3rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.processTrack {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.processLine {
+  position: absolute;
+  top: 3.48rem;
+  right: 12.5%;
+  left: 12.5%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.processStep {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 1.1rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.processNumber {
+  color: rgba(245, 239, 226, 0.4);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.processDot {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 0.72rem;
+  height: 0.72rem;
+  margin: 1.35rem 0 1.55rem;
+  border: 2px solid #555;
+  border-radius: 50%;
+  background: #090909;
+  box-shadow: 0 0 0 0.45rem #050505;
+  transition:
+    border-color 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.processStepActive .processDot {
+  border-color: #f0d77d;
+  background: var(--gold);
+  box-shadow:
+    0 0 0 0.45rem #050505,
+    0 0 22px rgba(212, 175, 55, 0.58);
+  transform: scale(1.08);
+}
+
+.processStep strong {
+  color: rgba(245, 239, 226, 0.62);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 180ms ease;
+}
+
+.processStepActive strong {
+  color: rgba(245, 239, 226, 0.96);
+}
+
+.processDescription {
+  max-width: 14rem;
+  margin-top: 0.9rem;
+  color: rgba(245, 239, 226, 0.5);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.processStep:focus-visible {
+  outline: none;
+}
+
+.processStep:focus-visible strong {
+  color: rgba(245, 239, 226, 0.96);
+}
+
+.processMobileDetail {
+  display: none;
+}
+
 .metric {
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -780,6 +1248,28 @@
 
   .sectionIntro {
     grid-template-columns: 1fr;
+  }
+
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .aboutContent {
+    padding-block: 0;
+  }
+
+  .aboutTitle {
+    max-width: 12ch;
+  }
+
+  .aboutVisual {
+    min-height: 28rem;
+  }
+
+  .processIntro {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
 
   .clientsTrack {
@@ -912,6 +1402,178 @@
   .servicesSection {
     padding-inline: 0.85rem;
     padding-bottom: 5.5rem;
+  }
+
+  .aboutSection,
+  .processSection {
+    padding-inline: 0.85rem;
+    padding-bottom: 5.5rem;
+  }
+
+  .aboutGrid {
+    gap: 2rem;
+  }
+
+  .aboutTitle {
+    max-width: 10ch;
+    font-size: clamp(2.8rem, 13vw, 3.7rem);
+    line-height: 0.93;
+  }
+
+  .aboutCopy {
+    margin-top: 1.35rem;
+    font-size: 0.94rem;
+    line-height: 1.72;
+  }
+
+  .aboutStats {
+    gap: 0.5rem;
+    margin-top: 1.7rem;
+  }
+
+  .aboutStat strong {
+    font-size: 1.25rem;
+  }
+
+  .aboutStat span {
+    font-size: 0.58rem;
+  }
+
+  .aboutVisual {
+    min-height: 23rem;
+    border-radius: 1.5rem;
+  }
+
+  .aboutVisualTopline,
+  .aboutVisualLegend {
+    right: 1rem;
+    left: 1rem;
+    font-size: 0.52rem;
+    letter-spacing: 0.1em;
+  }
+
+  .aboutVisualTopline {
+    top: 1rem;
+  }
+
+  .aboutVisualLegend {
+    bottom: 1rem;
+  }
+
+  .aboutScene {
+    inset: 3rem 0.6rem;
+  }
+
+  .brandCanvas {
+    width: 96%;
+    height: 17.5rem;
+  }
+
+  .canvasPoster {
+    padding: 0.75rem;
+  }
+
+  .canvasPoster strong {
+    margin-top: 2rem;
+    font-size: clamp(1.45rem, 7vw, 2rem);
+  }
+
+  .canvasFrame {
+    padding: 0.65rem;
+  }
+
+  .canvasInterface {
+    gap: 0.4rem;
+    padding: 0.7rem;
+  }
+
+  .canvasNote {
+    font-size: 0.48rem;
+  }
+
+  .canvasMarker {
+    width: 1.4rem;
+    height: 1.4rem;
+    font-size: 0.82rem;
+  }
+
+  .processIntro {
+    margin-bottom: 2rem;
+  }
+
+  .processTitle {
+    font-size: clamp(2.75rem, 12.5vw, 3.6rem);
+  }
+
+  .processCopy {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .processTimeline {
+    padding-top: 1.7rem;
+  }
+
+  .processLine {
+    top: 3.05rem;
+  }
+
+  .processStep {
+    align-items: center;
+    padding-inline: 0.15rem;
+    text-align: center;
+  }
+
+  .processNumber {
+    font-size: 0.6rem;
+  }
+
+  .processDot {
+    width: 0.65rem;
+    height: 0.65rem;
+    margin: 1.15rem 0 1.25rem;
+    box-shadow: 0 0 0 0.32rem #050505;
+  }
+
+  .processStepActive .processDot {
+    box-shadow:
+      0 0 0 0.32rem #050505,
+      0 0 18px rgba(212, 175, 55, 0.55);
+  }
+
+  .processStep strong {
+    font-size: clamp(0.62rem, 2.8vw, 0.78rem);
+    letter-spacing: 0.04em;
+  }
+
+  .processDescription {
+    display: none;
+  }
+
+  .processMobileDetail {
+    display: grid;
+    grid-template-columns: 2.2rem minmax(0, 1fr);
+    gap: 0.8rem;
+    margin-top: 1.6rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.025);
+    animation: processDetailIn 260ms ease both;
+  }
+
+  .processMobileDetail span {
+    color: rgba(245, 239, 226, 0.4);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+  }
+
+  .processMobileDetail p {
+    margin: 0;
+    color: rgba(245, 239, 226, 0.68);
+    font-size: 0.88rem;
+    line-height: 1.6;
   }
 
   .sectionIntro {
@@ -1091,7 +1753,9 @@
 @media (max-width: 370px) {
   .hero,
   .trustedSection,
-  .servicesSection {
+  .servicesSection,
+  .aboutSection,
+  .processSection {
     padding-inline: 0.7rem;
   }
 
@@ -1131,6 +1795,13 @@
   .clientCard {
     transition-duration: 0.01ms;
   }
+
+  .canvasPoster,
+  .canvasFrame,
+  .canvasInterface,
+  .processMobileDetail {
+    animation: none;
+  }
 }
 
 @keyframes ambientDrift {
@@ -1139,5 +1810,43 @@
   }
   100% {
     transform: translate3d(1.5%, 2.5%, 0) scale(1.04);
+  }
+}
+
+@keyframes canvasPosterFloat {
+  from {
+    transform: translate3d(-0.15rem, -0.12rem, 18px) rotate(-3.5deg);
+  }
+  to {
+    transform: translate3d(0.12rem, 0.2rem, 18px) rotate(-2.8deg);
+  }
+}
+
+@keyframes canvasFrameFloat {
+  from {
+    transform: translate3d(0.18rem, -0.12rem, 6px) rotate(2.5deg);
+  }
+  to {
+    transform: translate3d(-0.12rem, 0.16rem, 6px) rotate(1.9deg);
+  }
+}
+
+@keyframes canvasInterfaceFloat {
+  from {
+    transform: translate3d(-0.1rem, 0.18rem, 28px) rotate(-1deg);
+  }
+  to {
+    transform: translate3d(0.16rem, -0.16rem, 28px) rotate(-0.4deg);
+  }
+}
+
+@keyframes processDetailIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.35rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
