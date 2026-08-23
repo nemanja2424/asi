@@ -3,6 +3,7 @@ import ServicesShowcase from "@/components/ServicesShowcase";
 import Navbar from "@/components/Navbar";
 import InteractiveMockup from "@/components/InteractiveMockup";
 import ProcessTimeline from "@/components/ProcessTimeline";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import styles from "./page.module.css";
 
 const selectedCollaborations = [
@@ -138,9 +139,20 @@ const processSteps = [
   },
 ];
 
+const testimonials = [
+  {
+    id: "testimonial-preview",
+    eyebrow: "Layout preview",
+    quote:
+      "ASI completely transformed the way our brand looks online. From our website to our social media presence, everything finally feels consistent.",
+    author: "Client Name",
+    role: "Role, Company",
+  },
+];
+
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <div id="top" className={styles.page}>
       <Navbar />
       <main>
         <section className={styles.hero}>
@@ -310,7 +322,77 @@ export default function Home() {
 
           <ProcessTimeline steps={processSteps} styles={styles} />
         </section>
+
+        <section
+          id="testimonials"
+          className={styles.testimonialsSection}
+          aria-labelledby="testimonials-heading"
+        >
+          <div className={styles.testimonialsIntro}>
+            <span className={styles.sectionEyebrow}>Client Perspective</span>
+            <h2 id="testimonials-heading" className={styles.testimonialsTitle}>
+              Don&apos;t take our word for it.
+            </h2>
+          </div>
+
+          <TestimonialsCarousel testimonials={testimonials} styles={styles} />
+        </section>
+
+        <section id="contact" className={styles.finalCta} aria-labelledby="cta-heading">
+          <div className={styles.finalCtaInner}>
+            <span className={styles.finalCtaEyebrow}>Have a project in mind?</span>
+            <h2 id="cta-heading" className={styles.finalCtaTitle}>
+              Your next big project starts here.
+            </h2>
+            <p className={styles.finalCtaCopy}>
+              Let&apos;s build something worth remembering.
+            </p>
+            <div className={styles.finalCtaActions}>
+              <a href="mailto:hello@asi.agency" className={styles.finalCtaButton}>
+                Start a Project
+                <span aria-hidden="true">{"\u2192"}</span>
+              </a>
+              <a href="mailto:hello@asi.agency" className={styles.finalCtaEmail}>
+                hello@asi.agency
+              </a>
+            </div>
+            <span className={styles.finalCtaMonogram} aria-hidden="true">
+              ASI
+            </span>
+          </div>
+        </section>
       </main>
+
+      <footer className={styles.footer}>
+        <div className={styles.footerTop}>
+          <div className={styles.footerBrand}>
+            <a href="#top" aria-label="Back to top">ASI</a>
+            <p>
+              Creative agency for brands
+              <br />
+              ready to stand out.
+            </p>
+          </div>
+
+          <nav className={styles.footerLinks} aria-label="Footer navigation">
+            <a href="#work">Work</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+          <div className={styles.footerSocials} aria-label="Social profiles coming soon">
+            <span>Instagram</span>
+            <span>LinkedIn</span>
+            <span>Behance</span>
+          </div>
+        </div>
+
+        <div className={styles.footerBottom}>
+          <span>{"\u00a9"} 2026 ASI</span>
+          <p>Let&apos;s create something remarkable.</p>
+        </div>
+      </footer>
     </div>
   );
 }
