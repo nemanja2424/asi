@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ClientsCarousel from "@/components/ClientsCarousel";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import Navbar from "@/components/Navbar";
 import InteractiveMockup from "@/components/InteractiveMockup";
@@ -157,49 +157,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className={styles.clientsGrid}>
-            {selectedCollaborations.map((client, index) => (
-              <a
-                key={client.name}
-                href={client.href}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.clientCard}
-                style={{ "--client-index": `"0${index + 1}"` }}
-              >
-                <div className={styles.clientBody}>
-                  <div className={styles.clientMeta}>
-                    <span className={styles.clientType}>{client.type}</span>
-                    <h3 className={styles.clientName}>{client.name}</h3>
-                  </div>
-                  <p className={styles.clientSummary}>{client.summary}</p>
-                </div>
-
-                <div className={styles.clientAside}>
-                  <div
-                    className={styles.clientLogoRing}
-                    style={{
-                      "--client-logo-width": `${client.width}%`,
-                      "--client-logo-height": `${client.height}%`,
-                    }}
-                  >
-                    {client.logo ? (
-                      <Image
-                        src={client.logo}
-                        alt={`${client.name} logo`}
-                        width={200}
-                        height={200}
-                        className={styles.clientLogo}
-                      />
-                    ) : (
-                      <span className={styles.clientInitials}>{client.initials}</span>
-                    )}
-                  </div>
-                  <span className={styles.clientBadge}>{client.type}</span>
-                </div>
-              </a>
-            ))}
-          </div>
+          <ClientsCarousel clients={selectedCollaborations} styles={styles} />
         </section>
 
         <section
