@@ -429,22 +429,28 @@
 
 .servicePanel {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
-  gap: 1.2rem;
-  max-height: 0;
+  grid-template-rows: 0fr;
   padding: 0 1.5rem;
   overflow: hidden;
   opacity: 0;
   transition:
-    max-height 320ms ease,
-    opacity 220ms ease,
-    padding 220ms ease;
+    grid-template-rows 240ms ease,
+    opacity 180ms ease,
+    padding 180ms ease;
 }
 
 .serviceRowActive .servicePanel {
-  max-height: 24rem;
+  grid-template-rows: 1fr;
   padding: 0 1.5rem 1.5rem;
   opacity: 1;
+}
+
+.servicePanelInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+  gap: 1.2rem;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .serviceNumber {
@@ -1688,7 +1694,7 @@
     padding-right: 22%;
   }
 
-  .servicePanel {
+  .servicePanelInner {
     grid-template-columns: 1fr;
   }
 
@@ -2224,13 +2230,12 @@
   }
 
   .serviceRowActive .servicePanel {
-    max-height: 46rem;
+    grid-template-rows: 1fr;
     padding: 0 1.05rem 1.05rem;
   }
 
-  .servicePanel {
+  .servicePanelInner {
     gap: 1rem;
-    padding: 0 1.05rem;
   }
 
   .serviceName {

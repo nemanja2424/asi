@@ -35,33 +35,35 @@ export default function ServicesShowcase({ services, styles }) {
             </button>
 
             <div className={styles.servicePanel} aria-hidden={!isActive}>
-              <div className={styles.servicePanelBody}>
-                <div>
-                  <h3 className={styles.serviceName}>{service.title}</h3>
-                  <p className={styles.serviceDescription}>{service.description}</p>
+              <div className={styles.servicePanelInner}>
+                <div className={styles.servicePanelBody}>
+                  <div>
+                    <h3 className={styles.serviceName}>{service.title}</h3>
+                    <p className={styles.serviceDescription}>{service.description}</p>
+                  </div>
+
+                  <ul className={styles.serviceList}>
+                    {service.points.map((point) => (
+                      <li key={point} className={styles.serviceListItem}>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <ul className={styles.serviceList}>
-                  {service.points.map((point) => (
-                    <li key={point} className={styles.serviceListItem}>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className={styles.serviceVisual}>
-                <span className={styles.serviceVisualLabel}>{service.visualLabel}</span>
-                <div className={styles.serviceVisualArt}>
-                  <span className={styles.serviceVisualLine} />
-                  <span className={styles.serviceVisualLine} />
-                  <span className={styles.serviceVisualLine} />
+                <div className={styles.serviceVisual}>
+                  <span className={styles.serviceVisualLabel}>{service.visualLabel}</span>
+                  <div className={styles.serviceVisualArt}>
+                    <span className={styles.serviceVisualLine} />
+                    <span className={styles.serviceVisualLine} />
+                    <span className={styles.serviceVisualLine} />
+                  </div>
                 </div>
+                <a href={service.href} className={styles.serviceMore}>
+                  Explore service
+                  <span aria-hidden="true">{"\u2192"}</span>
+                </a>
               </div>
-              <a href={service.href} className={styles.serviceMore}>
-                Explore service
-                <span aria-hidden="true">{"\u2192"}</span>
-              </a>
             </div>
           </article>
         );
