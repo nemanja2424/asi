@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const navItems = [
@@ -56,8 +57,14 @@ export default function Navbar() {
         }`}
       >
         <Link href="/" className="brand-mark" aria-label="ASI home">
-          <span className="brand-dot" />
-          ASI
+          <Image
+            className="brand-logo"
+            src="/imeges/asiLogo.webp"
+            alt="ASI Solution"
+            width={92}
+            height={48}
+            priority
+          />
         </Link>
 
         <div className="nav-links" aria-label="Primary navigation">

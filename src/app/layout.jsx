@@ -14,6 +14,11 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "ASI Agency",
   description: "Premium digital agency portfolio for content, websites, and SEO.",
+  icons: {
+    icon: "/imeges/asiLogo.webp",
+    shortcut: "/imeges/asiLogo.webp",
+    apple: "/imeges/asiLogo.webp",
+  },
 };
 
 export default function RootLayout({ children }) {

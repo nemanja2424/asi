@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import styles from "./AsiEcosystem.module.css";
 
 const modules = [
@@ -64,8 +65,7 @@ export default function AsiEcosystem() {
 
         <div className={styles.core}>
           <span className={styles.orbit} aria-hidden="true" />
-          <strong>ASI</strong>
-          <span>System core</span>
+          <Image className={styles.coreLogo} src="/imeges/asiLogo.webp" alt="ASI Solution" width={62} height={62} />
         </div>
 
         {modules.map((module, index) => (
@@ -86,7 +86,6 @@ export default function AsiEcosystem() {
             <span className={styles.flow}>{module.flow}</span>
           </button>
         ))}
-        <span className={styles.inputLabel} aria-hidden="true">Input / connection / output</span>
       </div>
 
       <div className={styles.context}>

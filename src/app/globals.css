@@ -94,6 +94,14 @@ select {
   text-transform: uppercase;
 }
 
+.brand-logo {
+  display: block;
+  width: 8rem;
+  height: 3.4rem;
+  object-fit: contain;
+  object-position: left center;
+}
+
 .brand-dot {
   width: 0.65rem;
   height: 0.65rem;
@@ -463,6 +471,11 @@ select {
   .brand-mark {
     gap: 0.55rem;
     letter-spacing: 0.18em;
+  }
+
+  .brand-logo {
+    width: 7rem;
+    height: 3rem;
   }
 
   .mobile-menu-toggle {
