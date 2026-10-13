@@ -366,8 +366,8 @@ export default function Home() {
           </div>
 
           <nav className={styles.footerLinks} aria-label="Footer navigation">
-            <a href="#work">Work</a>
             <a href="#services">Services</a>
+            <a href="#work">Work</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
           </nav>
@@ -375,7 +375,6 @@ export default function Home() {
           <div className={styles.footerSocials} aria-label="Social profiles coming soon">
             <span>Instagram</span>
             <span>LinkedIn</span>
-            <span>Behance</span>
           </div>
         </div>
 

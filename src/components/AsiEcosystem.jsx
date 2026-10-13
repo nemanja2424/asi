@@ -65,7 +65,7 @@ export default function AsiEcosystem() {
 
         <div className={styles.core}>
           <span className={styles.orbit} aria-hidden="true" />
-          <Image className={styles.coreLogo} src="/imeges/asiLogo.webp" alt="ASI Solution" width={62} height={62} />
+          <Image className={styles.coreLogo} src="/imeges/A.webp" alt="ASI Solution" width={62} height={62} />
         </div>
 
         {modules.map((module, index) => (
@@ -98,7 +98,7 @@ export default function AsiEcosystem() {
 
       <footer className={styles.footer}>
         <div><strong>One digital system.</strong><p>Web <span>•</span> Social <span>•</span> Content <span>•</span> Automation</p></div>
-        <span className={styles.systemMark} aria-hidden="true">↗</span>
+        {/* <span className={styles.systemMark} aria-hidden="true">↗</span> */}
       </footer>
     </section>
   );

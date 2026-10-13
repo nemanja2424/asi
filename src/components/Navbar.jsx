@@ -5,8 +5,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const navItems = [
+  { label: "Services", href: "/services" },
   { label: "Work", href: "/#work" },
-  { label: "Services", href: "/#services" },
   { label: "About", href: "/#about" },
   { label: "Testimonials", href: "/#testimonials" },
 ];
@@ -59,10 +59,10 @@ export default function Navbar() {
         <Link href="/" className="brand-mark" aria-label="ASI home">
           <Image
             className="brand-logo"
-            src="/imeges/asiLogo.webp"
+            src="/imeges/ASI.webp"
             alt="ASI Solution"
-            width={92}
-            height={48}
+            width={879}
+            height={348}
             priority
           />
         </Link>
