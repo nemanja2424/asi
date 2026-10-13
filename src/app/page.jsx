@@ -146,15 +146,27 @@ const processSteps = [
 
 const testimonials = [
   {
-    id: "testimonial-preview",
-    eyebrow: "Layout preview",
-    quote:
-      "ASI completely transformed the way our brand looks online. From our website to our social media presence, everything finally feels consistent.",
-    author: "Client Name",
-    role: "Role, Company",
+    "id": "butik-irna",
+    "eyebrow": "E-commerce Development",
+    "quote": "With over 1,000 products, making our collection easy to browse was a priority. ASI built an online store that feels organized, reflects our brand, and makes it simple for customers to find what they’re looking for.",
+    "author": "Butik Irna",
+    "role": "E-commerce"
   },
+  {
+    "id": "konak-ramonda",
+    "eyebrow": "Social Media Management",
+    "quote": "We wanted our social media to reflect the atmosphere of our place. ASI brought a more consistent look to our profile while keeping the warmth and character that make Ramonda special.",
+    "author": "Konak Ramonda",
+    "role": "Social Media"
+  },
+  {
+    "id": "bebeco",
+    "eyebrow": "Social Media Management",
+    "quote": "From baby clothes to everyday essentials, we wanted to show parents what they could find in our store. ASI helped us present our products clearly and gave our profile a warm, consistent feel that suits bebeco.",
+    "author": "bebeco",
+    "role": "Social Media"
+  }
 ];
-
 export default function Home() {
   return (
     <div id="top" className={styles.page}>
