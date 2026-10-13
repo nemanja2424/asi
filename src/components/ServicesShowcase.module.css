@@ -1,0 +1,47 @@
+.steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: auto 0;
+  padding: 1.5rem 0 0.75rem;
+  list-style: none;
+  container-type: inline-size;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.35rem, 2.5cqi, 1rem);
+  color: rgba(245, 239, 226, 0.72);
+  font-size: clamp(0.6rem, 3.7cqi, 0.95rem);
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.stepLabel {
+  position: relative;
+  isolation: isolate;
+}
+
+.step:last-child .stepLabel {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.step:last-child .stepLabel::before {
+  content: "";
+  position: absolute;
+  inset: -0.8rem -0.3rem;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(212, 175, 55, 0.13), transparent 72%);
+  pointer-events: none;
+}
+
+.arrow {
+  color: rgba(212, 175, 55, 0.5);
+  font-size: 1em;
+  font-weight: 400;
+}

@@ -72,6 +72,7 @@ const services = [
       "Strategy, content creation and profile management that turns attention into growth.",
     points: ["Strategy", "Content Creation", "Profile Management", "Analytics"],
     visualLabel: "Growth System",
+    visualSteps: ["Attention","Connection","Community"],
     href: "/services#social-media-management",
   },
   {
@@ -81,6 +82,7 @@ const services = [
       "High-performance websites designed to look exceptional and convert visitors.",
     points: ["UX Direction", "Custom Design", "Development", "Conversion"],
     visualLabel: "Digital Experience",
+    visualSteps: ["First click","Exploration","Action"],
     href: "/services#web-development",
   },
   {
@@ -90,6 +92,7 @@ const services = [
       "Search strategies that put your brand in front of the people already looking for it.",
     points: ["Technical SEO", "On-Page", "Content Mapping", "Visibility"],
     visualLabel: "Search Presence",
+    visualSteps: ["Search","Discovery","Your brand"],
     href: "/services#seo",
   },
   {
@@ -99,6 +102,7 @@ const services = [
       "Visuals, video and creative campaigns built for modern digital platforms.",
     points: ["Visual Direction", "Video", "Campaign Assets", "Creative Systems"],
     visualLabel: "Creative Production",
+    visualSteps: ["Idea","Creation","Impact"],
     href: "/services#content-creation",
   },
   {
@@ -107,7 +111,8 @@ const services = [
     description:
       "Intelligent systems that help brands work faster, smarter and more efficiently.",
     points: ["Automation Flows", "AI Support", "Workflows", "Efficiency"],
-    visualLabel: "Operational Leverage",
+    visualLabel: "Smart Workflows",
+    visualSteps: ["Trigger","Process","Done"],
     href: "/services#ai-automation",
   },
 ];

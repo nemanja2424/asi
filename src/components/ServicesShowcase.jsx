@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import visualStyles from "./ServicesShowcase.module.css";
 
 export default function ServicesShowcase({ services, styles }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -53,11 +54,26 @@ export default function ServicesShowcase({ services, styles }) {
 
                 <div className={styles.serviceVisual}>
                   <span className={styles.serviceVisualLabel}>{service.visualLabel}</span>
-                  <div className={styles.serviceVisualArt}>
-                    <span className={styles.serviceVisualLine} />
-                    <span className={styles.serviceVisualLine} />
-                    <span className={styles.serviceVisualLine} />
-                  </div>
+                  {service.visualSteps ? (
+                    <ol className={visualStyles.steps} aria-label={service.visualLabel}>
+                      {service.visualSteps.map((step, stepIndex) => (
+                        <li key={step} className={visualStyles.step}>
+                          <span className={visualStyles.stepLabel}>{step}</span>
+                          {stepIndex < service.visualSteps.length - 1 && (
+                            <span className={visualStyles.arrow} aria-hidden="true">
+                              {"\u2192"}
+                            </span>
+                          )}
+                        </li>
+                      ))}
+                    </ol>
+                  ) : (
+                    <div className={styles.serviceVisualArt}>
+                      <span className={styles.serviceVisualLine} />
+                      <span className={styles.serviceVisualLine} />
+                      <span className={styles.serviceVisualLine} />
+                    </div>
+                  )}
                 </div>
                 <a href={service.href} className={styles.serviceMore}>
                   Explore service
