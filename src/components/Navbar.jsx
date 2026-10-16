@@ -16,6 +16,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const headerRef = useRef(null);
+  const menuToggleRef = useRef(null);
 
   useEffect(() => {
     let scrolled = window.scrollY > 16;
@@ -46,6 +47,12 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const desktop = window.matchMedia("(min-width: 921px)");
+    const closeOnDesktop = (event) => {
+      if (event.matches) setIsMenuOpen(false);
+    };
     const closeOnOutsideClick = (event) => {
       if (!headerRef.current?.contains(event.target)) {
         setIsMenuOpen(false);
@@ -55,17 +62,20 @@ export default function Navbar() {
     const closeOnEscape = (event) => {
       if (event.key === "Escape") {
         setIsMenuOpen(false);
+        menuToggleRef.current?.focus();
       }
     };
 
     document.addEventListener("pointerdown", closeOnOutsideClick);
     document.addEventListener("keydown", closeOnEscape);
+    desktop.addEventListener("change", closeOnDesktop);
 
     return () => {
       document.removeEventListener("pointerdown", closeOnOutsideClick);
       document.removeEventListener("keydown", closeOnEscape);
+      desktop.removeEventListener("change", closeOnDesktop);
     };
-  }, []);
+  }, [isMenuOpen]);
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -76,7 +86,7 @@ export default function Navbar() {
           isMenuOpen ? "nav-shell-menu-open" : ""
         }`}
       >
-        <Link href="/" className="brand-mark" aria-label="ASI home">
+        <Link href="/" className="brand-mark" aria-label="ASI home" onClick={closeMenu}>
           <Image
             className="brand-logo"
             src="/imeges/ASI.webp"
@@ -103,6 +113,7 @@ export default function Navbar() {
         </ContactButton>
 
         <button
+          ref={menuToggleRef}
           type="button"
           className={`mobile-menu-toggle ${isMenuOpen ? "mobile-menu-toggle-open" : ""}`}
           onClick={() => setIsMenuOpen((current) => !current)}
