@@ -1,3 +1,4 @@
+import ContactButton from "./ContactButton";
 import AsiEcosystem from "./AsiEcosystem";
 import styles from "./HeroSection.module.css";
 
@@ -16,9 +17,9 @@ export default function HeroSection() {
           connected system for modern brand growth.
         </p>
         <div className={styles.actions}>
-          <a href="#contact" className={styles.primary}>
+          <ContactButton className={styles.primary}>
             Start a project <span aria-hidden="true">→</span>
-          </a>
+          </ContactButton>
           <a href="#work" className={styles.secondary}>View our work</a>
         </div>
         <ul className={styles.services} aria-label="Our connected services">

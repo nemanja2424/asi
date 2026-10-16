@@ -1,3 +1,4 @@
+import ContactButton from "@/components/ContactButton";
 import ClientsCarousel from "@/components/ClientsCarousel";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import Navbar from "@/components/Navbar";
@@ -339,12 +340,12 @@ export default function Home() {
               Let&apos;s build something worth remembering.
             </p>
             <div className={styles.finalCtaActions}>
-              <a href="mailto:hello@asi.agency" className={styles.finalCtaButton}>
+              <ContactButton className={styles.finalCtaButton}>
                 Start a Project
                 <span aria-hidden="true">{"\u2192"}</span>
-              </a>
-              <a href="mailto:hello@asi.agency" className={styles.finalCtaEmail}>
-                hello@asi.agency
+              </ContactButton>
+              <a href="mailto:asi.solutions45@gmail.com" className={styles.finalCtaEmail}>
+                Send an email
               </a>
             </div>
             <span className={styles.finalCtaMonogram} aria-hidden="true">

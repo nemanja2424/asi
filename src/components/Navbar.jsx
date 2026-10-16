@@ -1,5 +1,6 @@
 "use client";
 
+import ContactButton from "./ContactButton";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -75,12 +76,12 @@ export default function Navbar() {
           ))}
         </div>
 
-        <Link href="/#contact" className="nav-cta">
+        <ContactButton className="nav-cta">
           Let&apos;s Talk
           <span className="nav-cta-arrow" aria-hidden="true">
             {"\u2192"}
           </span>
-        </Link>
+        </ContactButton>
 
         <button
           type="button"
@@ -116,15 +117,14 @@ export default function Navbar() {
             ))}
           </div>
 
-          <Link
-            href="/#contact"
+          <ContactButton
             className="mobile-nav-cta"
             onClick={closeMenu}
             tabIndex={isMenuOpen ? 0 : -1}
           >
             Let&apos;s Talk
             <span aria-hidden="true">{"\u2192"}</span>
-          </Link>
+          </ContactButton>
         </div>
       </nav>
     </header>
