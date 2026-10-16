@@ -18,12 +18,31 @@ export default function Navbar() {
   const headerRef = useRef(null);
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 16);
+    let scrolled = window.scrollY > 16;
+    let frame = window.requestAnimationFrame(() => {
+      frame = null;
+      setIsScrolled(scrolled);
+    });
 
-    onScroll();
+    const onScroll = () => {
+      if (frame !== null) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = null;
+        // Separate thresholds prevent flickering around the scroll boundary.
+        const next = scrolled ? window.scrollY > 8 : window.scrollY > 24;
+        if (next !== scrolled) {
+          scrolled = next;
+          setIsScrolled(next);
+        }
+      });
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame !== null) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   useEffect(() => {
@@ -100,31 +119,34 @@ export default function Navbar() {
           id="mobile-navigation"
           className={`mobile-nav-panel ${isMenuOpen ? "mobile-nav-panel-open" : ""}`}
           aria-hidden={!isMenuOpen}
+          inert={!isMenuOpen}
         >
-          <div className="mobile-nav-links">
-            {navItems.map((item, index) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="mobile-nav-link"
-                onClick={closeMenu}
-                tabIndex={isMenuOpen ? 0 : -1}
-              >
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                {item.label}
-                <span aria-hidden="true">{"\u2197"}</span>
-              </Link>
-            ))}
-          </div>
+          <div className="mobile-nav-panel-inner">
+            <div className="mobile-nav-links">
+              {navItems.map((item, index) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="mobile-nav-link"
+                  onClick={closeMenu}
+                  tabIndex={isMenuOpen ? 0 : -1}
+                >
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  {item.label}
+                  <span aria-hidden="true">{"\u2197"}</span>
+                </Link>
+              ))}
+            </div>
 
-          <ContactButton
-            className="mobile-nav-cta"
-            onClick={closeMenu}
-            tabIndex={isMenuOpen ? 0 : -1}
-          >
-            Let&apos;s Talk
-            <span aria-hidden="true">{"\u2192"}</span>
-          </ContactButton>
+            <ContactButton
+              className="mobile-nav-cta"
+              onClick={closeMenu}
+              tabIndex={isMenuOpen ? 0 : -1}
+            >
+              Let&apos;s Talk
+              <span aria-hidden="true">{"\u2192"}</span>
+            </ContactButton>
+          </div>
         </div>
       </nav>
     </header>

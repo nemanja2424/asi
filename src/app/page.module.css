@@ -355,6 +355,9 @@
 }
 
 .servicesStack {
+  --service-motion-duration: 380ms;
+  --service-motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --service-panel-padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -369,22 +372,11 @@
     radial-gradient(circle at top right, rgba(212, 175, 55, 0.05), transparent 32%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
     rgba(10, 10, 10, 0.56);
-  backdrop-filter: blur(16px);
-  transition:
-    border-color 220ms ease,
-    box-shadow 220ms ease,
-    background 220ms ease,
-    transform 220ms ease;
+  transition: border-color var(--service-motion-duration) ease;
 }
 
 .serviceRowActive {
   border-color: rgba(212, 175, 55, 0.18);
-  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.2);
-  background:
-    radial-gradient(circle at top right, rgba(212, 175, 55, 0.1), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
-    rgba(11, 11, 11, 0.66);
-  transform: translateY(-2px);
 }
 
 .serviceTrigger {
@@ -420,7 +412,8 @@
   color: var(--gold);
   font-size: 1.6rem;
   line-height: 1;
-  transition: transform 220ms ease, opacity 220ms ease;
+  flex-shrink: 0;
+  transition: transform var(--service-motion-duration) var(--service-motion-easing);
 }
 
 .serviceRowActive .servicePlus {
@@ -430,27 +423,34 @@
 .servicePanel {
   display: grid;
   grid-template-rows: 0fr;
-  padding: 0 1.5rem;
   overflow: hidden;
-  opacity: 0;
-  transition:
-    grid-template-rows 240ms ease,
-    opacity 180ms ease,
-    padding 180ms ease;
+  transition: grid-template-rows var(--service-motion-duration) var(--service-motion-easing);
 }
 
 .serviceRowActive .servicePanel {
   grid-template-rows: 1fr;
-  padding: 0 1.5rem 1.5rem;
-  opacity: 1;
+}
+
+.servicePanelClip {
+  min-height: 0;
+  overflow: hidden;
 }
 
 .servicePanelInner {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
   gap: 1.2rem;
-  min-height: 0;
-  overflow: hidden;
+  padding: 0 var(--service-panel-padding) var(--service-panel-padding);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity var(--service-motion-duration) ease,
+    transform var(--service-motion-duration) var(--service-motion-easing);
+}
+
+.serviceRowActive .servicePanelInner {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .serviceNumber {
@@ -2219,9 +2219,8 @@
     letter-spacing: 0.07em;
   }
 
-  .serviceRowActive .servicePanel {
-    grid-template-rows: 1fr;
-    padding: 0 1.05rem 1.05rem;
+  .servicesStack {
+    --service-panel-padding: 1.05rem;
   }
 
   .servicePanelInner {
@@ -2314,6 +2313,8 @@
 
   .serviceRow,
   .servicePanel,
+  .servicePanelInner,
+  .servicePlus,
   .heroCtaArrow,
   .brandsAccent,
   .clientCard {

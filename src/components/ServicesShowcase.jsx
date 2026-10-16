@@ -35,50 +35,52 @@ export default function ServicesShowcase({ services, styles }) {
               </span>
             </button>
 
-            <div className={styles.servicePanel} aria-hidden={!isActive}>
-              <div className={styles.servicePanelInner}>
-                <div className={styles.servicePanelBody}>
-                  <div>
-                    <h3 className={styles.serviceName}>{service.title}</h3>
-                    <p className={styles.serviceDescription}>{service.description}</p>
-                  </div>
+            <div className={styles.servicePanel} aria-hidden={!isActive} inert={!isActive}>
+              <div className={styles.servicePanelClip}>
+                <div className={styles.servicePanelInner}>
+                  <div className={styles.servicePanelBody}>
+                    <div>
+                      <h3 className={styles.serviceName}>{service.title}</h3>
+                      <p className={styles.serviceDescription}>{service.description}</p>
+                    </div>
 
-                  <ul className={styles.serviceList}>
-                    {service.points.map((point) => (
-                      <li key={point} className={styles.serviceListItem}>
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className={styles.serviceVisual}>
-                  <span className={styles.serviceVisualLabel}>{service.visualLabel}</span>
-                  {service.visualSteps ? (
-                    <ol className={visualStyles.steps} aria-label={service.visualLabel}>
-                      {service.visualSteps.map((step, stepIndex) => (
-                        <li key={step} className={visualStyles.step}>
-                          <span className={visualStyles.stepLabel}>{step}</span>
-                          {stepIndex < service.visualSteps.length - 1 && (
-                            <span className={visualStyles.arrow} aria-hidden="true">
-                              {"\u2192"}
-                            </span>
-                          )}
+                    <ul className={styles.serviceList}>
+                      {service.points.map((point) => (
+                        <li key={point} className={styles.serviceListItem}>
+                          {point}
                         </li>
                       ))}
-                    </ol>
-                  ) : (
-                    <div className={styles.serviceVisualArt}>
-                      <span className={styles.serviceVisualLine} />
-                      <span className={styles.serviceVisualLine} />
-                      <span className={styles.serviceVisualLine} />
-                    </div>
-                  )}
+                    </ul>
+                  </div>
+
+                  <div className={styles.serviceVisual}>
+                    <span className={styles.serviceVisualLabel}>{service.visualLabel}</span>
+                    {service.visualSteps ? (
+                      <ol className={visualStyles.steps} aria-label={service.visualLabel}>
+                        {service.visualSteps.map((step, stepIndex) => (
+                          <li key={step} className={visualStyles.step}>
+                            <span className={visualStyles.stepLabel}>{step}</span>
+                            {stepIndex < service.visualSteps.length - 1 && (
+                              <span className={visualStyles.arrow} aria-hidden="true">
+                                {"\u2192"}
+                              </span>
+                            )}
+                          </li>
+                        ))}
+                      </ol>
+                    ) : (
+                      <div className={styles.serviceVisualArt}>
+                        <span className={styles.serviceVisualLine} />
+                        <span className={styles.serviceVisualLine} />
+                        <span className={styles.serviceVisualLine} />
+                      </div>
+                    )}
+                  </div>
+                  <a href={service.href} className={styles.serviceMore}>
+                    Explore service
+                    <span aria-hidden="true">{"\u2192"}</span>
+                  </a>
                 </div>
-                <a href={service.href} className={styles.serviceMore}>
-                  Explore service
-                  <span aria-hidden="true">{"\u2192"}</span>
-                </a>
               </div>
             </div>
           </article>
