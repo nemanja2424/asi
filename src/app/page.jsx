@@ -86,18 +86,18 @@ const services = [
     visualSteps: ["First click","Exploration","Action"],
     href: "/services#web-development",
   },
+  // {
+  //   number: "03",
+  //   title: "SEO",
+  //   description:
+  //     "Search strategies that put your brand in front of the people already looking for it.",
+  //   points: ["Technical SEO", "On-Page", "Content Mapping", "Visibility"],
+  //   visualLabel: "Search Presence",
+  //   visualSteps: ["Search","Discovery","Your brand"],
+  //   href: "/services#seo",
+  // },
   {
     number: "03",
-    title: "SEO",
-    description:
-      "Search strategies that put your brand in front of the people already looking for it.",
-    points: ["Technical SEO", "On-Page", "Content Mapping", "Visibility"],
-    visualLabel: "Search Presence",
-    visualSteps: ["Search","Discovery","Your brand"],
-    href: "/services#seo",
-  },
-  {
-    number: "04",
     title: "Content Creation",
     description:
       "Visuals, video and creative campaigns built for modern digital platforms.",
@@ -107,7 +107,7 @@ const services = [
     href: "/services#content-creation",
   },
   {
-    number: "05",
+    number: "04",
     title: "AI & Automation",
     description:
       "Intelligent systems that help brands work faster, smarter and more efficiently.",

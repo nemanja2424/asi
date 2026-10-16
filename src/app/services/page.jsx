@@ -69,27 +69,27 @@ const services = [
     ],
     timeline: ["Discovery", "Wireframes", "Build", "Launch"],
   },
-  {
-    id: "seo",
-    label: "SEO",
-    mobileLabel: "SEO",
-    eyebrow: "Search visibility with structure",
-    title: "SEO foundations that support growth long after the campaign ends.",
-    description:
-      "We connect technical cleanup, content structure, and intent-based pages so your brand is easier to discover and stronger in organic search.",
-    highlights: ["On-page strategy", "Technical fixes", "Search intent mapping"],
-    stats: [
-      { value: "SERP", label: "Visibility wins" },
-      { value: "Core", label: "Web vitals" },
-      { value: "3x", label: "Content clusters" },
-    ],
-    cards: [
-      { title: "Audit pass", text: "Prioritized fixes for indexing, structure, and speed." },
-      { title: "Keyword map", text: "Intent-led planning tied to real service and offer pages." },
-      { title: "Growth lane", text: "Content opportunities grouped into scalable topic clusters." },
-    ],
-    timeline: ["Audit", "Mapping", "Implementation", "Monitoring"],
-  },
+  // {
+  //   id: "seo",
+  //   label: "SEO",
+  //   mobileLabel: "SEO",
+  //   eyebrow: "Search visibility with structure",
+  //   title: "SEO foundations that support growth long after the campaign ends.",
+  //   description:
+  //     "We connect technical cleanup, content structure, and intent-based pages so your brand is easier to discover and stronger in organic search.",
+  //   highlights: ["On-page strategy", "Technical fixes", "Search intent mapping"],
+  //   stats: [
+  //     { value: "SERP", label: "Visibility wins" },
+  //     { value: "Core", label: "Web vitals" },
+  //     { value: "3x", label: "Content clusters" },
+  //   ],
+  //   cards: [
+  //     { title: "Audit pass", text: "Prioritized fixes for indexing, structure, and speed." },
+  //     { title: "Keyword map", text: "Intent-led planning tied to real service and offer pages." },
+  //     { title: "Growth lane", text: "Content opportunities grouped into scalable topic clusters." },
+  //   ],
+  //   timeline: ["Audit", "Mapping", "Implementation", "Monitoring"],
+  // },
   {
     id: "ai-automation",
     label: "AI & automation",
@@ -187,7 +187,7 @@ export default function ServicesPage() {
           <div className={styles.switcherShell}>
             <div
               className={styles.switcher}
-              style={{ "--active-index": activeIndex }}
+              style={{ "--active-index": activeIndex, "--service-count": services.length }}
             >
               <span className={styles.indicator} aria-hidden="true" />
 

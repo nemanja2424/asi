@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "ASI Agency",
-  description: "Premium digital agency portfolio for content, websites, and SEO.",
+  description: "Premium digital agency for content creation, social media management, web development, and AI automation.",
   icons: {
     icon: "/imeges/A.webp",
     shortcut: "/imeges/A.webp",
