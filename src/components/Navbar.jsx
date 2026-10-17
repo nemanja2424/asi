@@ -4,6 +4,17 @@ import ContactButton from "./ContactButton";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
+function NavArrow({ diagonal = false }) {
+  const [width, height, , , path] = faArrowRight.icon;
+
+  return (
+    <svg width="1em" height="1em" viewBox={`0 0 ${width} ${height}`} fill="currentColor" aria-hidden="true" focusable="false" style={{ verticalAlign: "-0.125em", transform: diagonal ? "rotate(-45deg)" : undefined }}>
+      <path d={path} />
+    </svg>
+  );
+}
 
 const navItems = [
   { label: "Services", href: "/services" },
@@ -108,7 +119,7 @@ export default function Navbar() {
         <ContactButton className="nav-cta">
           Let&apos;s Talk
           <span className="nav-cta-arrow" aria-hidden="true">
-            {"\u2192"}
+            <NavArrow />
           </span>
         </ContactButton>
 
@@ -144,7 +155,7 @@ export default function Navbar() {
                 >
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   {item.label}
-                  <span aria-hidden="true">{"\u2197"}</span>
+                  <span aria-hidden="true"><NavArrow diagonal /></span>
                 </Link>
               ))}
             </div>
@@ -155,7 +166,7 @@ export default function Navbar() {
               tabIndex={isMenuOpen ? 0 : -1}
             >
               Let&apos;s Talk
-              <span aria-hidden="true">{"\u2192"}</span>
+              <span aria-hidden="true"><NavArrow /></span>
             </ContactButton>
           </div>
         </div>
