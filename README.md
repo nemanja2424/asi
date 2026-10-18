@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+SEO implementation, service keyword mapping, maintenance, and production setup are documented in [docs/seo.md](docs/seo.md). After building and starting the app, run `npm run test:seo -- http://localhost:3100` (use your server's port) to check the rendered pages, metadata, sitemap, links, and redirects.
+
 ## Getting Started
 
 First, run the development server:

@@ -1,4 +1,5 @@
 import ContactButton from "@/components/ContactButton";
+import ServiceFooter from "@/components/ServiceFooter";
 import ClientsCarousel from "@/components/ClientsCarousel";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import Navbar from "@/components/Navbar";
@@ -6,6 +7,11 @@ import HeroSection from "@/components/HeroSection";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import styles from "./page.module.css";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata, organization, webPageSchema, site } from "@/lib/seo";
+
+const title = "Web Design, Social Media & AI Automation";
+export const metadata = pageMetadata({ title, description: site.description, path: "/" });
 
 const selectedCollaborations = [
   {
@@ -68,13 +74,13 @@ const selectedCollaborations = [
 const services = [
   {
     number: "01",
-    title: "Social Media",
+    title: "Social Media Management",
     description:
       "Strategy, content creation and profile management that turns attention into growth.",
     points: ["Strategy", "Content Creation", "Profile Management", "Analytics"],
     visualLabel: "Growth System",
     visualSteps: ["Attention","Connection","Community"],
-    href: "/services#social-media-management",
+    href: "/services/social-media-management",
   },
   {
     number: "02",
@@ -84,7 +90,7 @@ const services = [
     points: ["UX Direction", "Custom Design", "Development", "Conversion"],
     visualLabel: "Digital Experience",
     visualSteps: ["First click","Exploration","Action"],
-    href: "/services#web-development",
+    href: "/services/web-development",
   },
   // {
   //   number: "03",
@@ -104,7 +110,7 @@ const services = [
     points: ["Visual Direction", "Video", "Campaign Assets", "Creative Systems"],
     visualLabel: "Creative Production",
     visualSteps: ["Idea","Creation","Impact"],
-    href: "/services#content-creation",
+    href: "/services/content-creation",
   },
   {
     number: "04",
@@ -114,7 +120,7 @@ const services = [
     points: ["Automation Flows", "AI Support", "Workflows", "Efficiency"],
     visualLabel: "Smart Workflows",
     visualSteps: ["Trigger","Process","Done"],
-    href: "/services#ai-automation",
+    href: "/services/ai-automation",
   },
 ];
 
@@ -171,8 +177,13 @@ const testimonials = [
 export default function Home() {
   return (
     <div id="top" className={styles.page}>
+      <JsonLd data={{ "@context": "https://schema.org", "@graph": [
+        organization,
+        { "@type": "WebSite", "@id": `${site.url}/#website`, url: site.url, name: site.name, alternateName: "ASI", inLanguage: "en-US", publisher: { "@id": organization["@id"] } },
+        webPageSchema({ title, description: site.description, path: "/" }),
+      ] }} />
       <Navbar />
-      <main>
+      <main id="main-content">
         <HeroSection />
 
         <section
@@ -206,13 +217,13 @@ export default function Home() {
             <div>
               <span className={styles.sectionEyebrow}>What We Do</span>
               <h2 id="services-heading" className={styles.servicesTitle}>
-                Creative and technical systems built for modern brand growth.
+                Web design, social media, content, and AI automation.
               </h2>
             </div>
 
             <p className={styles.servicesCopy}>
-              We combine strategy, content, design, and performance into a tighter
-              digital presence that feels elevated and works hard behind the scenes.
+              From a new business website to consistent social content and connected
+              workflows, explore the services that support your next stage of growth.
             </p>
           </div>
 
@@ -231,8 +242,11 @@ export default function Home() {
                 More than an agency. <span>A creative partner.</span>
               </h2>
               <p className={styles.aboutCopy}>
-                We combine creativity, technology and strategy to help ambitious
-                brands build a stronger presence in the digital world.
+                ASI Solutions brings web design and development, social media
+                management, content creation, and AI automation together for
+                businesses targeting the US market. Our selected work spans retail,
+                hospitality, and service businesses, with each project shaped around
+                the brand and its customers.
               </p>
 
               {aboutStats.length > 0 && (
@@ -355,35 +369,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className={styles.footer}>
-        <div className={styles.footerTop}>
-          <div className={styles.footerBrand}>
-            <a href="#top" aria-label="Back to top">ASI</a>
-            <p>
-              Creative agency for brands
-              <br />
-              ready to stand out.
-            </p>
-          </div>
-
-          <nav className={styles.footerLinks} aria-label="Footer navigation">
-            <a href="#services">Services</a>
-            <a href="#work">Work</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-          </nav>
-
-          <div className={styles.footerSocials} aria-label="Social profiles coming soon">
-            <span>Instagram</span>
-            <span>LinkedIn</span>
-          </div>
-        </div>
-
-        <div className={styles.footerBottom}>
-          <span>{"\u00a9"} 2026 ASI</span>
-          <p>Let&apos;s create something remarkable.</p>
-        </div>
-      </footer>
+      <ServiceFooter />
     </div>
   );
 }

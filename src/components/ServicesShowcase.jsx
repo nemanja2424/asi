@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import visualStyles from "./ServicesShowcase.module.css";
 
 export default function ServicesShowcase({ services, styles }) {
@@ -76,10 +77,10 @@ export default function ServicesShowcase({ services, styles }) {
                       </div>
                     )}
                   </div>
-                  <a href={service.href} className={styles.serviceMore}>
-                    Explore service
+                  <Link href={service.href} className={styles.serviceMore}>
+                    Explore {service.title.toLowerCase()}
                     <span aria-hidden="true">{"\u2192"}</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

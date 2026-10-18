@@ -97,13 +97,14 @@ export default function Navbar() {
           isMenuOpen ? "nav-shell-menu-open" : ""
         }`}
       >
-        <Link href="/" className="brand-mark" aria-label="ASI home" onClick={closeMenu}>
+        <Link href="/" className="brand-mark" aria-label="ASI Solutions home" onClick={closeMenu}>
           <Image
             className="brand-logo"
             src="/imeges/ASI.webp"
-            alt="ASI Solution"
+            alt="ASI Solutions"
             width={879}
             height={348}
+            sizes="(max-width: 640px) 112px, 128px"
             priority
           />
         </Link>

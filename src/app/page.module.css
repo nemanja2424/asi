@@ -1551,7 +1551,7 @@
 
 .footerTop {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) repeat(2, minmax(9rem, 0.5fr));
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(9rem, 0.6fr);
   gap: 2rem;
   padding-bottom: 4rem;
 }
@@ -1560,7 +1560,7 @@
   color: rgba(245, 239, 226, 0.96);
   font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.08em;
 }
 
 .footerBrand p {
